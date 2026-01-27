@@ -1,7 +1,9 @@
 
 # R Config
 
-This repository contains scripts forsetting up R, RStudio, and common R packages on a fresh Ubuntu system.
+This repository contains scripts for setting up R, RStudio, and common R packages on a fresh Ubuntu system.
+
+Importantly, this setup has not been tested, but I assume it works.
 
 ## Setup Instructions
 
