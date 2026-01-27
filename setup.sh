@@ -15,3 +15,7 @@ bash "$SCRIPT_DIR/install_rstudio.sh"
 # install r package dependencies
 echo "Installing R package dependencies"
 bash "$SCRIPT_DIR/install_dependencies.sh"
+
+# install R packages
+echo "Installing R packages"
+Rscript "$SCRIPT_DIR/install_packages.R"
