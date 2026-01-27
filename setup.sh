@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 set -e # exit the process if any command fails
