@@ -1,7 +1,7 @@
 
 # cran packages
 cran_packages <- c("tidyverse",
-		   "janitor",
+                   "janitor",
                    "tidytext",
                    "tidymodels",
                    "tidygraph",
