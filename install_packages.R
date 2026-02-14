@@ -15,6 +15,7 @@ cran_packages <- c("tidyverse",
                    "remotes", 
                    "survey", 
                    "srvyr",
+                   "quarto",
                    "quanteda",
                    "quanteda.textstats",
                    "quanteda.textplots")
