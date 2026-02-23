@@ -20,7 +20,8 @@ cran_packages <- c("tidyverse",
                    "quanteda.textstats",
                    "quanteda.textplots")
 
-# TODO by default this will install into the root directory - find a way to guess the user's local project directory
+# TODO by default this will install into the root directory
+# TODO find a way to guess the user's local project directory
 # install only missing packages (avoid re-installing packages everytime)
 cran_install <- setdiff(cran_packages, rownames(installed.packages()))
 
