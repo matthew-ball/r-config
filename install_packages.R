@@ -26,6 +26,7 @@ r_version <- paste(R.version$major, R.version$minor, sep = ".")
 install_path <- paste0("~/R/x86_64-pc-linux-gnu-library/", r_version)
 
 # install only missing packages (avoid re-installing packages everytime)
+# cran_install <- setdiff(cran_packages, rownames(installed.packages(lib.loc = install_path)))
 cran_install <- setdiff(cran_packages, rownames(installed.packages()))
 
 if (length(cran_install) > 0) {
@@ -41,9 +42,11 @@ remote_packages <- c(
     "vosonSML"      = "vosonlab/vosonSML",
     "VOSONDash"     = "vosonlab/VOSONDash")
 
+# remote_install <- setdiff(names(remote_packages), rownames(installed.packages(lib.loc = install_path)))
 remote_install <- setdiff(names(remote_packages), rownames(installed.packages()))
 
 if (length(remote_install) > 0) {
+    # remotes::install_github(remote_packages[remote_install], lib = install_path)
     remotes::install_github(remote_packages[remote_install])
 } else {
     message("Requested remote packages are already installed.")
