@@ -21,15 +21,13 @@ cran_packages <- c("tidyverse",
                    "quanteda.textplots")
 
 # FIXME this is hard-coded
-r_version <- paste(R.version$major, R.version$minor, sep = ".")
-
-install_path <- paste0("~/R/x86_64-pc-linux-gnu-library/", r_version)
+# r_version <- paste(R.version$major, R.version$minor, sep = ".")
+#
+# install_path <- paste0("~/R/x86_64-pc-linux-gnu-library/", r_version)
 
 # install only missing packages (avoid re-installing packages everytime)
-<<<<<<< HEAD
 # cran_install <- setdiff(cran_packages, rownames(installed.packages(lib.loc = install_path)))
-=======
->>>>>>> e70ac47 (Fix typo)
+
 cran_install <- setdiff(cran_packages, rownames(installed.packages()))
 
 if (length(cran_install) > 0) {
