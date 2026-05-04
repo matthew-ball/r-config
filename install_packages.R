@@ -6,14 +6,14 @@ cran_packages <- c("tidyverse",
                    "tidymodels",
                    "tidygraph",
                    "ggstats",
-                   "igraph", 
-                   "ggraph", 
+                   "igraph",
+                   "ggraph",
                    "tinytex",
                    "patchwork",
                    "gt",
                    "gtExtras",
-                   "remotes", 
-                   "survey", 
+                   "remotes",
+                   "survey",
                    "srvyr",
                    "quarto",
                    "quanteda",
@@ -26,7 +26,10 @@ r_version <- paste(R.version$major, R.version$minor, sep = ".")
 install_path <- paste0("~/R/x86_64-pc-linux-gnu-library/", r_version)
 
 # install only missing packages (avoid re-installing packages everytime)
+<<<<<<< HEAD
 # cran_install <- setdiff(cran_packages, rownames(installed.packages(lib.loc = install_path)))
+=======
+>>>>>>> e70ac47 (Fix typo)
 cran_install <- setdiff(cran_packages, rownames(installed.packages()))
 
 if (length(cran_install) > 0) {
