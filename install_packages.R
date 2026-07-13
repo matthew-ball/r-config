@@ -19,7 +19,9 @@ cran_packages <- c("tidyverse",
                    "quarto",
                    "quanteda",
                    "quanteda.textstats",
-                   "quanteda.textplots")
+                   "quanteda.textplots",
+                   "openalexr",
+                   "bibliometrix")
 
 # FIXME this is hard-coded
 # r_version <- paste(R.version$major, R.version$minor, sep = ".")
