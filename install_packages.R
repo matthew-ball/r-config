@@ -1,5 +1,5 @@
 
-# cran packages
+# NOTE cran packages
 cran_packages <- c("tidyverse",
                    "janitor",
                    "tidytext",
@@ -23,42 +23,54 @@ cran_packages <- c("tidyverse",
                    "quanteda.sentiment",
                    "quanteda.textplots",
                    "openalexr",
-                   "bibliometrix")
+                   "bibliometrix",
+                   "modelsummary")
 
-# FIXME this is hard-coded
-# r_version <- paste(R.version$major, R.version$minor, sep = ".")
-#
-# install_path <- paste0("~/R/x86_64-pc-linux-gnu-library/", r_version)
-
-# install only missing packages (avoid re-installing packages everytime)
-# cran_install <- setdiff(cran_packages, rownames(installed.packages(lib.loc = install_path)))
-
-cran_install <- setdiff(cran_packages, rownames(installed.packages()))
-
-if (length(cran_install) > 0) {
-    # install.packages(cran_install, lib = install_path)
-    install.packages(cran_install)
-} else {
-    message("Requested packages are already installed.")
-}
-
-# remote packages
+# NOTE remote packages
 remote_packages <- c(
     "quanteda.tidy" = "quanteda/quanteda.tidy",
     "vosonSML"      = "vosonlab/vosonSML",
     "VOSONDash"     = "vosonlab/VOSONDash")
 
-# remote_install <- setdiff(names(remote_packages), rownames(installed.packages(lib.loc = install_path)))
-remote_install <- setdiff(names(remote_packages), rownames(installed.packages()))
+# NOTE auto-detect environment paths
+primary_library <- .libPaths()[1]
+message(paste("Target library path resolved to:", primary_library))
+
+# NOTE install only missing CRAN packages (avoid re-installing packages every time)
+installed_packages <- rownames(installed.packages())
+cran_install <- setdiff(cran_packages, installed_packages)
+
+if (length(cran_install) > 0) {
+    message(paste("Installing", length(cran_install), "missing CRAN packages..."))
+    install.packages(cran_install, lib = primary_library)
+} else {
+    message("Requested packages are already installed.")
+}
+
+# NOTE ensure {remotes} is loaded before trying to use it
+if (!requireNamespace("remotes", quietly = TRUE)) {
+    stop("Critical Error: 'remotes' package failed to install via CRAN.")
+}
+
+# NOTE install missing remote packages
+remote_install <- setdiff(names(remote_packages), installed_packages)
 
 if (length(remote_install) > 0) {
-    # remotes::install_github(remote_packages[remote_install], lib = install_path)
-    remotes::install_github(remote_packages[remote_install])
+    message(paste("Installing", length(remote_install), "missing remote packages..."))
+
+    remote_targets <- unname(remote_packages[remote_install])
+
+    for (repo in remote_targets) {
+        message(paste("Installing GitHub repository:", repo))
+        remotes::install_github(
+            repo,
+            lib = primary_library,
+            upgrade = "never", # NOTE stops dependencies from aggressively re-compiling
+            dependencies = TRUE
+        )
+    }
 } else {
     message("Requested remote packages are already installed.")
 }
 
-# remotes::install_github("quanteda/quanteda.tidy")
-# remotes::install_github("vosonlab/vosonSML")
-# remotes::install_github("vosonlab/VOSONDash")
-
+message("Environment configuration complete")
