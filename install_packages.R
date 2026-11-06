@@ -26,8 +26,8 @@ cran_packages <- c("tidyverse",
 # NOTE remote packages
 remote_packages <- c(
     "quanteda.tidy"         = "quanteda/quanteda.tidy",
-    "quanteda.dictionaries" = "quanteda/quanteda.dictionaries",
     "quanteda.sentiment"    = "quanteda/quanteda.sentiment",
+    "quanteda.dictionaries" = "kbenoit/quanteda.dictionaries",
     "openalexR"             = "ropensci/openalexR",
     "vosonSML"              = "vosonlab/vosonSML",
     "VOSONDash"             = "vosonlab/VOSONDash")
