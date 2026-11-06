@@ -19,19 +19,18 @@ cran_packages <- c("tidyverse",
                    "quarto",
                    "quanteda",
                    "quanteda.textstats",
-                   "quanteda.dictionaries",
-                   "quanteda.sentiment",
                    "quanteda.textplots",
-                   "quanteda.tidy",
-                   "openalexr",
                    "bibliometrix",
                    "modelsummary")
 
 # NOTE remote packages
 remote_packages <- c(
-    "quanteda.tidy" = "quanteda/quanteda.tidy",
-    "vosonSML"      = "vosonlab/vosonSML",
-    "VOSONDash"     = "vosonlab/VOSONDash")
+    "quanteda.tidy"         = "quanteda/quanteda.tidy",
+    "quanteda.dictionaries" = "quanteda/quanteda.dictionaries",
+    "quanteda.sentiment"    = "quanteda/quanteda.sentiment",
+    "openalexR"             = "ropensci/openalexR",
+    "vosonSML"              = "vosonlab/vosonSML",
+    "VOSONDash"             = "vosonlab/VOSONDash")
 
 # NOTE auto-detect environment paths
 primary_library <- .libPaths()[1]
