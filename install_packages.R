@@ -22,6 +22,7 @@ cran_packages <- c("tidyverse",
                    "quanteda.dictionaries",
                    "quanteda.sentiment",
                    "quanteda.textplots",
+                   "quanteda.tidy",
                    "openalexr",
                    "bibliometrix",
                    "modelsummary")
