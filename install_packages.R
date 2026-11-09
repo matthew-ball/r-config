@@ -1,10 +1,10 @@
 
 # NOTE cran packages
 cran_packages <- c("tidyverse",
-                   "janitor",
                    "tidytext",
                    "tidymodels",
                    "tidygraph",
+                   "janitor",
                    "ggstats",
                    "ggforce",
                    "igraph",
@@ -49,7 +49,7 @@ if (length(cran_install) > 0) {
 
 # NOTE ensure {remotes} is loaded before trying to use it
 if (!requireNamespace("remotes", quietly = TRUE)) {
-    stop("Critical Error: 'remotes' package failed to install via CRAN.")
+    stop("Critical Error: '{remotes}' package failed to install via CRAN.")
 }
 
 # NOTE install missing remote packages
@@ -73,4 +73,4 @@ if (length(remote_install) > 0) {
     message("Requested remote packages are already installed.")
 }
 
-message("Environment configuration complete")
+message("Environment configuration complete.")
